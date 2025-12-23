@@ -1,13 +1,192 @@
 <!DOCTYPE html>
-<html>
-  
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RDVN</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Aryamman Devaani - Learning and building.">
+    <meta property="og:title" content="Aryamman Devaani">
+    <meta property="og:description" content="Learning and building.">
+    <meta property="og:type" content="website">
+    <title>Aryamman Devaani</title>
+    <link rel="icon" href="favicon.png">
     
-    <meta http-equiv="refresh" content="0; url=https://www.bhgvd.com" />
-    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --text-faint: #767676;
+            --accent-color: #000000;
+            --font-stack: "ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", "Courier New", monospace;
+            --font-base: 16px;
+            --line-height: 1.6;
+            --max-width: 65ch;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            font-size: var(--font-base);
+            line-height: var(--line-height);
+            padding: var(--spacing-md);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 4rem);
+        }
+
+        h1 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            color: var(--text-muted);
+            max-width: 90%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        header {
+            margin-bottom: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+        }
+
+        .project-list {
+            list-style: none;
+            margin-bottom: var(--spacing-lg);
+            border-top: 1px dashed #ccc;
+        }
+
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .project-link {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+        }
+
+        .project-desc {
+            font-size: 0.875rem;
+            color: var(--text-faint);
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: var(--spacing-sm);
+            border-top: 2px solid var(--accent-color);
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-faint);
+        }
+
+        footer a {
+            position: relative;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        footer a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        @media (max-width: 480px) {
+            body { 
+                padding: 1.25rem; 
+            }
+            .project-item { 
+                flex-direction: column; 
+                gap: 0.25rem; 
+            }
+        }
+    </style>
 </head>
-  
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Aryamman Devaani</h1>
+            <p>Learning</p>
+        </header>
+
+        <main>
+            <h2>Projects</h2>
+            <ul class="project-list">
+                <li class="project-item">
+                    <a href="https://www.bhgvd.com" class="project-link" target="_blank" rel="noopener noreferrer">Bhgvd</a>
+                    <span class="project-desc">read the Gītā</span>
+                </li>
+            </ul>
+        </main>
+
+        <footer>
+            <a href="mailto:aryammandevaani@icloud.com" aria-label="Email Aryamman">Mail</a>
+            <a href="https://www.github.com/AryammanDevaani" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
+            <a href="https://www.x.com/AryammanDevaani" target="_blank" rel="noopener noreferrer" aria-label="X Profile">X</a>
+        </footer>
+    </div>
+
+</body>
 </html>
