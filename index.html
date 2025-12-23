@@ -3,30 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal portfolio of Aryamman Devaani - Learning and building.">
-    <meta property="og:title" content="Aryamman Devaani">
-    <meta property="og:description" content="Learning and building.">
-    <meta property="og:type" content="website">
     <title>Aryamman Devaani</title>
-    <link rel="icon" href="favicon.png">
-    
     <style>
+        /* --- 1. Reset & Variables --- */
         :root {
             --bg-color: #ffffff;
-            --text-main: #111111;
-            --text-muted: #555555;
-            --text-faint: #767676;
-            --accent-color: #000000;
-            --font-stack: "ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", "Courier New", monospace;
-            --font-base: 16px;
-            --line-height: 1.6;
-            --max-width: 65ch;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
+            --text-color: #111;
+            --accent-color: #444;
+            --link-color: #000;
+            --hover-color: #666;
+            /* Monospace/Typewriter Stack */
+            --font-main: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+            --spacing: 1.5rem;
+            --max-width: 600px;
         }
 
-        *, *::before, *::after {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -34,132 +26,106 @@
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-stack);
-            font-size: var(--font-base);
-            line-height: var(--line-height);
-            padding: var(--spacing-md);
-            -webkit-font-smoothing: antialiased;
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            padding: 2rem;
+            font-size: 16px;
         }
 
+        /* --- 2. Layout --- */
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            min-height: calc(100vh - 4rem);
+            min-height: 90vh;
         }
 
+        /* --- 3. Typography --- */
         h1 {
-            font-size: 1rem;
             font-weight: 700;
+            font-size: 1rem; /* Keeping headers same size as text for strict minimalism */
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-
-        h2 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 0.5rem;
         }
 
         p {
-            color: var(--text-muted);
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing);
             max-width: 90%;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        a:focus-visible {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-            border-radius: 2px;
-        }
-
+        /* --- 4. Navigation/Header --- */
         header {
-            margin-bottom: var(--spacing-lg);
-            padding-top: var(--spacing-md);
+            margin-bottom: 3.5rem;
+            padding-top: 2rem;
         }
 
+        /* --- 5. Project List --- */
         .project-list {
             list-style: none;
-            margin-bottom: var(--spacing-lg);
-            border-top: 1px dashed #ccc;
+            margin-bottom: 4rem;
         }
 
         .project-item {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            padding: 0.75rem 0;
-            border-bottom: 1px dashed #ccc;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #ccc; /* Dashed line fits typewriter vibe better */
+        }
+
+        .project-item:first-child {
+            border-top: 1px dashed #ccc;
         }
 
         .project-link {
+            text-decoration: none;
+            color: var(--link-color);
             font-weight: 700;
-            color: var(--text-main);
+            transition: opacity 0.2s ease;
         }
 
         .project-link:hover {
+            opacity: 0.6;
             text-decoration: underline;
-            opacity: 0.7;
         }
 
         .project-desc {
-            font-size: 0.875rem;
-            color: var(--text-faint);
+            font-size: 0.8rem;
+            color: #666;
             font-style: italic;
         }
 
+        /* --- 6. Footer --- */
         footer {
             margin-top: auto;
-            padding-top: var(--spacing-sm);
-            border-top: 2px solid var(--accent-color);
+            font-size: 0.8rem;
+            color: #888;
             display: flex;
             gap: 1.5rem;
-            font-size: 0.875rem;
-            color: var(--text-faint);
+            border-top: 2px solid #000;
+            padding-top: 1rem;
         }
 
         footer a {
-            position: relative;
+            color: #555;
+            text-decoration: none;
         }
 
         footer a:hover {
-            color: var(--accent-color);
+            text-decoration: underline;
+            color: #000;
         }
 
-        footer a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--accent-color);
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
-        }
-
-        footer a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
+        /* Mobile Adjustments */
         @media (max-width: 480px) {
-            body { 
-                padding: 1.25rem; 
-            }
-            .project-item { 
-                flex-direction: column; 
-                gap: 0.25rem; 
-            }
+            body { padding: 1.5rem; }
+            .project-item { flex-direction: column; gap: 0.2rem; }
+            header { margin-bottom: 2.5rem; }
         }
     </style>
 </head>
@@ -168,23 +134,21 @@
     <div class="container">
         <header>
             <h1>Aryamman Devaani</h1>
-            <p>Learning</p>
         </header>
 
         <main>
-            <h2>Projects</h2>
             <ul class="project-list">
                 <li class="project-item">
-                    <a href="https://www.bhgvd.com" class="project-link" target="_blank" rel="noopener noreferrer">Bhgvd</a>
+                    <a href="https://www.bhgvd.com" class="project-link" target="_blank">Bhgvd</a>
                     <span class="project-desc">read the Gītā</span>
                 </li>
             </ul>
         </main>
 
         <footer>
-            <a href="mailto:aryammandevaani@icloud.com" aria-label="Email Aryamman">Mail</a>
-            <a href="https://www.github.com/AryammanDevaani" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
-            <a href="https://www.x.com/AryammanDevaani" target="_blank" rel="noopener noreferrer" aria-label="X Profile">X</a>
+            <a href="mailto:aryammandevaani@icloud.com">Mail</a>
+            <a href="https://www.github.com/AryammanDevaani">GitHub</a>
+            <a href="https://www.x.com/AryammanDevaani">X</a>
         </footer>
     </div>
 
