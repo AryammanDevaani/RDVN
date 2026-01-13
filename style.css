@@ -1,0 +1,121 @@
+:root {
+    --bg-color: #0f0f0f;
+    --margin-color: #333;
+    --text-color: #888;
+    --highlight-color: #fff;
+    --line-height: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-block: 5rem;
+}
+
+.notebook {
+    width: 90%;
+    max-width: 700px;
+    padding-inline-start: 3rem;
+    border-inline-start: 2px solid var(--margin-color);
+}
+
+header {
+    margin-block-end: var(--line-height);
+    color: var(--highlight-color);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--line-height);
+}
+
+.header-title {
+    font-weight: 700;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+.entries {
+    list-style: none;
+}
+
+.entry {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    line-height: var(--line-height);
+    margin-block-end: var(--line-height);
+    position: relative;
+    will-change: transform, opacity, filter;
+    transition: all 0.4s ease;
+}
+
+.entry-title {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--bg-color);
+    padding-inline-end: 15px;
+    position: relative;
+}
+
+.entry-desc {
+    display: block;
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.entries:hover .entry,
+.entries:focus-within .entry {
+    opacity: 0.2;
+    filter: blur(1px);
+}
+
+.entries .entry:hover,
+.entries .entry:focus {
+    opacity: 1;
+    filter: blur(0);
+    color: var(--highlight-color);
+    transform: translateX(10px);
+    outline: none;
+}
+
+.entry-title::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--highlight-color);
+    transition: width 0.3s ease;
+}
+
+.entry:hover .entry-title::after,
+.entry:focus .entry-title::after {
+    width: 100%;
+}
