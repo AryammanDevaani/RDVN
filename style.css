@@ -50,6 +50,7 @@ h2 {
     justify-content: space-between;
     align-items: flex-start;
     height: var(--line-height);
+    margin-block-end: 1rem;
 }
 
 .header-title {
